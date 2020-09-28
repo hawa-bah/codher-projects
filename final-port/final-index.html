@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hawa - Landing page </title>
+
+  <link href="https://fonts.googleapis.com/css?family=Chivo:700|Overpass:400,700&display=swap" 
+        rel="stylesheet">
+  <link rel="stylesheet" href="final-style-.css">
+  <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+      crossorigin="anonymous"
+    ></script>
+</head>
+<body>
+    <header>
+      <nav class="nav-bar" >
+          <ul class="nav-list">
+            <li class="nav-item"><a href="#top">Home</a></li>
+            <li class="nav-item"><a href="#intro">About</a></li>
+            <li class="nav-item"><a href="#skills-experience">Skills & Experience</a></li>
+            <li class="nav-item"><a href="#projectsDiv">Projects</a></li>
+            <li class="nav-item"><a href="#contact">Contact</a></li>
+          </ul>       
+      </nav>
+    </header>
+  <!-- Banner section -->
+    <header class="top" id="top">
+      <div>
+          <h1 class="title">Hawa Bah Bah</h1>
+          <h2>portfolio</h2>
+      </div>
+    </header>
+        
+    <main>
+        <div class="intro" id="intro">
+            <div class="intro title">
+                <h3>About me</h3>
+                <h6> - Who I am - </h6>
+            </div>
+            <div class="intro content">
+                <div class="intro-img-cont">
+                    <img class=img-me src="images/me-park.jpg">
+                </div>
+                <div class="text">
+                    <h2>Hi</h2>
+                    <p>I'm currently based in Birmingham and I have just graduated from 
+                        The University of Birmingham with a degree in Mathematics. 
+                        I love learning new skills. Now, I am a student in the BlackCodher Bootcamp. 
+                        In this website you will learn more about myself and the steps that I take 
+                        as a spiring Software Engineer. 
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="skills-experience" id="skills-experience">
+            
+            <div class="skills title">
+                <h3>Skills & Experience</h3>
+                <h6> - A constant learner - </h6>
+            </div>    
+            <div class="skills-conetent">
+                <div class="text-1">
+                    <p>The BlackCodher Bootcamp is an initiative organised by Niyo Enterprise and Coding Black Females. 
+                    The program is a part time coding course which runs for 30 weeks. 
+                    Click <a href="https://blackcodher.com/" target="_blank">here</a> to learn more about it.
+                    </p>
+                    <br>
+                </div>
+                <div class="text-2">
+                    <div>
+                        <p>So far we have learned about:</p>
+                        <br>
+                        <ul class="skills-items">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>Bootstrap</li>
+                            <li>The Command Line</li> 
+                            <li>The Terminal</li>
+                            <li>SCSS</li>
+                            <li>Git and GitHub</li>
+                            <li>JavaScript</li>
+                            <li>JQuery</li>
+                            <li>And more!</li>
+                        </ul>
+                    </div>
+                    <!-- <div><img class="img-boot" src="images/codher.jpg"></div> -->
+                </div>  
+
+            </div>
+                           
+        </div>
+
+        <div class="projectsDiv" id="projectsDiv">
+            <div class="projects title">
+                <h3>My projects</h3>
+                <h6> - What I have been working on - </h6>
+            </div>  
+            <p>Here are some of the projects I have built during the course.</p>
+            <br>
+            <br>
+            <div class="icon-container">
+                <div class="icon-port" id="icon">
+                  <a href="#final-index.html" target="_blank">Portfolio</a>
+                  <img class="portImg" src="images/prtf-icon.png">
+                </div>
+                <div class="icon-book" id="icon">
+                  <a href="../bookstore/shop-index-b.html" target="_blank">Bookstore</a>
+                  <img class="bookImg" src="images/book-icon.jpg">
+                </div>
+                <div class="icon-quiz" id="icon">
+                  <a href="../final-quiz/final-index.html" target="_blank">Quiz</a>
+                  <img class="quizImg" src="images/quiz-icon.png">
+
+                </div>
+            </div>    
+        </div>
+
+        <div class="contact" id="contact">
+            <div class="contact title">
+                <h3>Contact</h3>
+                <h6> - Let's talk! - </h6>
+            </div> 
+            <div class="formDiv">
+              <form >  
+              <!-- <form action="action_page.php"> -->
+                <div class="form-item">
+                  <i class="fa fa-user icon"></i>
+                  <label for="name">Name</label>
+                  <input type="text" id="name" name="name" placeholder="Your name" class="form-control" required>
+                </div>
+
+                <div class="form-item" id="divEmail"> 
+                  <i class="fa fa-envelope icon"></i>
+                  <label for="email">Email</label>
+                  <input type="text" id="email" name="email" placeholder="Enter Email" class="form-control" required>
+                </div>
+                
+                <div class="form-item">
+                  <span class="icon-textarea fa fa-paper-plane fa-lg"></span>
+                  <label for="subject">Query</label>
+                  <textarea id="subject" name="subject" placeholder="How can I help you"
+                  style="height:250px" required></textarea>
+                </div>
+
+                <div class="form-item">
+                  <!-- <button type="button">Submit</button> -->
+                  <input type="submit" value="Submit" id="btn-submit">
+                </div>
+
+              </form> 
+            </div>
+
+        </div>
+    </main> 
+    <footer>
+        <p>Website designed by Hawa.</p>
+    </footer>
+  
+    <script type="text/javascript" src="email-validation.js"></script>
+</body>
+
+</html>

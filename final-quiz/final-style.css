@@ -1,0 +1,18 @@
+/*This is the style of the quizz*/
+body {
+    background-color: #ffbd69;
+    margin: 0px;
+    
+}
+h2 {
+    position: center;
+}
+#quizDivOption{
+    background-color: white;
+    height: 20px;
+}
+.home-container{
+    max-height: 800px;
+    height: 700px;
+    background-color: #ffbd69;
+}
