@@ -12,15 +12,16 @@ h2 {
 }
 .home-container{
     max-height: 800px;
-    height: 700px;
+    height: 600px;
     background-color: black;
 }
 .home-container{
     display:flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
+    /* text-align: center; */
     justify-content: center;
+
 
 }
 .home-container h1{
@@ -28,8 +29,40 @@ h2 {
     color: white;
     font-size: 100px;
 }
-.home-container p{
+.home-container p,
+ol{
     color: white;
     font-size: medium;
     font-family: Arial, Helvetica, sans-serif;
+}
+.link,
+button{
+    color:black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    background-color: white;
+    border-radius: 10px;
+    border-width: thin;
+    border-color: white;
+}
+button:hover{
+    box-shadow: 2px 2px 25px 7px white;
+}
+button a {
+    text-decoration: none;
+}
+a:link{
+    text-decoration: none;
+    color: black;
+    padding: 10px;
+}
+#resultsDiv{
+    background-color: black;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+
 }
