@@ -37,15 +37,15 @@ export default function buildQuiz(questions){
 
         // nextButton(question);
         ///
-        const nextPrevDiv = document.createElement('div');
-        nextPrevDiv.className = 'nextPrevDiv';
-        nextPrevDiv.style.cssText = "background-color: none; color: black; width: 100%; display: flex; justify-content:space-between"
+        // const nextPrevDiv = document.createElement('div');
+        // nextPrevDiv.className = 'nextPrevDiv';
+        // nextPrevDiv.style.cssText = "background-color: none; color: black; width: 100%; display: flex; justify-content:space-between"
         
         
-        const nextButton = document.createElement('a');
-        nextButton.className = 'nextButton';
-        nextButton.textContent = 'Next';
-        nextButton.href = "#";
+        // const nextButton = document.createElement('a');
+        // nextButton.className = 'nextButton';
+        // nextButton.textContent = 'Next';
+        // nextButton.href = "#";
 
         // $(".nextButton").on("click", function(e) {
         //     $(document).scrollTop($(".nextButton").parent().next().top);
@@ -55,12 +55,12 @@ export default function buildQuiz(questions){
 
 
         //nextButton.id = 'nextButton' + question.country;
-        nextButton.id = i;
+        //nextButton.id = i;
         //nextButton.on('clicked', i, function{})
 
-        const prevButton = document.createElement('button');
-        prevButton.className = 'prevButton';
-        prevButton.textContent = 'Prev';
+        // const prevButton = document.createElement('button');
+        // prevButton.className = 'prevButton';
+        // prevButton.textContent = 'Prev';
         //prevButton.id = 'prevButton' + question.country;
 
         question.options.map((option) =>{
@@ -101,12 +101,12 @@ export default function buildQuiz(questions){
         });
 
         ///next prev button
-        nextPrevDiv.appendChild(nextButton);
-        nextPrevDiv.appendChild(prevButton);
+        // nextPrevDiv.appendChild(nextButton);
+        // nextPrevDiv.appendChild(prevButton);
         
         questionDiv.appendChild(qstnTitle);
         questionDiv.appendChild(optionsForm);
-        questionDiv.appendChild(nextPrevDiv);
+        // questionDiv.appendChild(nextPrevDiv);
         
         quizDiv.appendChild(questionDiv);
 
@@ -179,10 +179,11 @@ export default function buildQuiz(questions){
         });        
     }
 
-
+    //////////////////////////////////////////////////////////////////////////////////
+    ////////    ADDING AN EVENT LISTENER        ----    NEXT AND PREV BUTTON
+    ///////////////////////////////////////////////////////////////////////////////
     var items = document.querySelectorAll(".questionDiv");
-    //items = .questionDiv
-
+    
     console.log(items.length);
     var activeItem = 0;
 
@@ -193,25 +194,16 @@ export default function buildQuiz(questions){
         activeItem++;
         var itemNext = items[activeItem];
         itemNext.scrollIntoView();
-        //TweenMax.to(window, 1, { scrollTo: items[activeItem] });
        }
     });
-    // $(".prev").click(function(event) {
-    //     event.preventDefault();
-    //     if (items.length > 1 && activeItem > 0) {
-    //       activeItem--;
-    //       TweenMax.to(window, 1, { scrollTo: items[activeItem] });
-    //     }
-    // });
 
-    // $(".next").click(function(event){
-    //     event.preventDefault();
-    //     $('html, body').animate({scrollTop: '+=700'}, 800);
-    
-    // });
-    // $(".prev").click(function(event){
-    //     event.preventDefault();
-    //     $('html, body').animate({scrollTop: '-=700'}, 800);
-        
-    // });
+    $(document).on('click', '.prev', function(event) {
+        //console.log('prev button is working');
+        event.preventDefault();
+        if (items.length > 1 && activeItem > 0) {
+        activeItem--;
+        var itemPrev = items[activeItem];
+        itemPrev.scrollIntoView();
+       }
+    });
 };
