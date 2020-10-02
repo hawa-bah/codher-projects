@@ -66,3 +66,28 @@ a:link{
     padding: 20px;
 
 }
+
+/* ///////////// */
+.prev {
+    position:fixed;
+    right:20px;
+    bottom: 180px;
+    padding:20px;
+    border-radius:10px;
+    color:inherit;
+    font-family:helvetica;
+    text-decoration:none;
+    background: #eee;
+  }
+  
+  .next {
+    position:fixed;
+    right:20px;
+    bottom: 100px;
+    padding:20px;
+    border-radius:10px;
+    color:inherit;
+    font-family:helvetica;
+    text-decoration:none;
+    background: #eee;
+  }

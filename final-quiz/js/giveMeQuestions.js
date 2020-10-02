@@ -1,10 +1,13 @@
+// import nextButton from './next-btn.js';
 //function to display quiz questions
 export default function buildQuiz(questions){
     const quizDiv = document.getElementById('quizDiv');
     const btnsubmit = document.getElementById('btnsubmit');
     const resultsDiv = document.getElementById('resultsDiv');
-
-    questions.map((question) => {
+///////////////////////////
+    let i=0;
+/////////////////////
+    questions.map((question, index) => {
         const questionDiv = document.createElement('div');
         questionDiv.className = 'questionDiv';
         questionDiv.id = 'questionDiv' + question.correct;
@@ -31,7 +34,35 @@ export default function buildQuiz(questions){
         qstnTitle.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
 
         const optionsForm = document.createElement('form');
+
+        // nextButton(question);
+        ///
+        const nextPrevDiv = document.createElement('div');
+        nextPrevDiv.className = 'nextPrevDiv';
+        nextPrevDiv.style.cssText = "background-color: none; color: black; width: 100%; display: flex; justify-content:space-between"
         
+        
+        const nextButton = document.createElement('a');
+        nextButton.className = 'nextButton';
+        nextButton.textContent = 'Next';
+        nextButton.href = "#";
+
+        // $(".nextButton").on("click", function(e) {
+        //     $(document).scrollTop($(".nextButton").parent().next().top);
+        //   // $(this).parent().next() // this is the next div container.
+        //     return false;
+        // });
+
+
+        //nextButton.id = 'nextButton' + question.country;
+        nextButton.id = i;
+        //nextButton.on('clicked', i, function{})
+
+        const prevButton = document.createElement('button');
+        prevButton.className = 'prevButton';
+        prevButton.textContent = 'Prev';
+        //prevButton.id = 'prevButton' + question.country;
+
         question.options.map((option) =>{
             
             const optionDiv = document.createElement('div');
@@ -69,10 +100,22 @@ export default function buildQuiz(questions){
             // optionsForm.appendChild(inputLabel);
         });
 
+        ///next prev button
+        nextPrevDiv.appendChild(nextButton);
+        nextPrevDiv.appendChild(prevButton);
+        
         questionDiv.appendChild(qstnTitle);
         questionDiv.appendChild(optionsForm);
+        questionDiv.appendChild(nextPrevDiv);
         
         quizDiv.appendChild(questionDiv);
+
+        i = i + 1;
+        console.log(i);
+
+        
+
+
     });
 
     //////////////////////////////////////////////////////////////////////////////////
@@ -135,4 +178,40 @@ export default function buildQuiz(questions){
             quizDiv2.appendChild(resultQuestion);
         });        
     }
+
+
+    var items = document.querySelectorAll(".questionDiv");
+    //items = .questionDiv
+
+    console.log(items.length);
+    var activeItem = 0;
+
+    $(document).on('click', '.next', function(event) {
+        console.log('next button is working');
+        event.preventDefault();
+        if (items.length > 1 && activeItem < items.length - 1) {
+        activeItem++;
+        var itemNext = items[activeItem];
+        itemNext.scrollIntoView();
+        //TweenMax.to(window, 1, { scrollTo: items[activeItem] });
+       }
+    });
+    // $(".prev").click(function(event) {
+    //     event.preventDefault();
+    //     if (items.length > 1 && activeItem > 0) {
+    //       activeItem--;
+    //       TweenMax.to(window, 1, { scrollTo: items[activeItem] });
+    //     }
+    // });
+
+    // $(".next").click(function(event){
+    //     event.preventDefault();
+    //     $('html, body').animate({scrollTop: '+=700'}, 800);
+    
+    // });
+    // $(".prev").click(function(event){
+    //     event.preventDefault();
+    //     $('html, body').animate({scrollTop: '-=700'}, 800);
+        
+    // });
 };
