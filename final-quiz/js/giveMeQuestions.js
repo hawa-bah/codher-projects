@@ -35,18 +35,19 @@ export default function buildQuiz(questions){
         // -----------------------------------------TODAY
         const submitNextDiv = document.createElement('div');
         submitNextDiv.className = 'submitNextDiv';
-        submitNextDiv.style.cssText = 'height: 60px; background-color: white';
+        submitNextDiv.style.cssText = 'border-color: green; border-style: thin; background-color: white';
         
         
         const submitDiv = document.createElement('div');
         submitDiv.className = 'submitDiv';
         submitDiv.textContent = 'Submit';
+        submitDiv.style.cssText = 'border-setyle: thin; background-color:  grey';
         
         const nextDiv = document.createElement('div');
         nextDiv.className = 'nextDiv';
         nextDiv.id = 'nextDiv';
         nextDiv.textContent = 'Next';
-        nextDiv.style.cssText = 'height: 30px; background-color: pink';
+        nextDiv.style.cssText = 'border-setyle: thin; background-color: black';
         // ----------------------------------------
         
         question.options.map((option) =>{
@@ -113,9 +114,10 @@ export default function buildQuiz(questions){
 
         $(".nextDiv").click(function() {
             var next;
-                next = $(this).parent().parent().next();
-                $('html,body').scrollTop(next.offset().top);   
-            })
+            next = $(this).parent().parent().next();
+            // $('html,body').scrollTop(next.offset().top); 
+            $('html,body').animate({scrollTop: next.offset().top});  
+        })
         // -------------------------------------
 
 

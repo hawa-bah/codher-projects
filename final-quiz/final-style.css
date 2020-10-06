@@ -8,14 +8,38 @@ h2 {
 }
 /* ----- added today  */
 .questionDiv{
-    filter:  brightness(40%);
+    /* filter:  brightness(40%); */
+    background-image: brightness(40%);
+}
+.submitNextDiv{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+    width: 120px;
+    border-radius: 12px;
+    margin-bottom: 90px;
+}
+
+.nextDiv,
+.submitDiv{
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    
+    
 }
 
 
-#quizDivOption{
+
+/* #quizDivOption{
     background-color: white;
     height: 20px;
-}
+} */
+
+
+
+
 .home-container{
     max-height: 800px;
     height: 600px;
