@@ -31,6 +31,23 @@ export default function buildQuiz(questions){
         qstnTitle.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
 
         const optionsForm = document.createElement('form');
+
+        // -----------------------------------------TODAY
+        const submitNextDiv = document.createElement('div');
+        submitNextDiv.className = 'submitNextDiv';
+        submitNextDiv.style.cssText = 'height: 60px; background-color: white';
+        
+        
+        const submitDiv = document.createElement('div');
+        submitDiv.className = 'submitDiv';
+        submitDiv.textContent = 'Submit';
+        
+        const nextDiv = document.createElement('div');
+        nextDiv.className = 'nextDiv';
+        nextDiv.id = 'nextDiv';
+        nextDiv.textContent = 'Next';
+        nextDiv.style.cssText = 'height: 30px; background-color: pink';
+        // ----------------------------------------
         
         question.options.map((option) =>{
             
@@ -69,10 +86,40 @@ export default function buildQuiz(questions){
             // optionsForm.appendChild(inputLabel);
         });
 
+        // ------------------------------------TODAY
+        submitNextDiv.appendChild(submitDiv);
+        submitNextDiv.appendChild(nextDiv);
+        // ------------------------------------------
+
         questionDiv.appendChild(qstnTitle);
         questionDiv.appendChild(optionsForm);
+
+        // --------------------------TODAY
+        questionDiv.appendChild(submitNextDiv);
+        // ---------------------------------
         
         quizDiv.appendChild(questionDiv);
+
+        // ------------------------------------TODAY
+        // submitNextDiv.addEventListener('click', goToNextQuestion());
+
+        // function goToNextQuestion(){
+        //     let el =  $(this).parent().parent().next();
+        //     // let el =  $(this).parent().parent().nextSibling();
+        //     $('html,body').scrollTop(el); 
+        //     // el.scrollIntoView();
+        //     console.log(el);
+        // }
+
+        $(".nextDiv").click(function() {
+            var next;
+                next = $(this).parent().parent().next();
+                $('html,body').scrollTop(next.offset().top);   
+            })
+        // -------------------------------------
+
+
+
     });
 
     //////////////////////////////////////////////////////////////////////////////////
