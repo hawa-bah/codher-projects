@@ -9,11 +9,11 @@ export default function buildQuiz(questions){
         questionDiv.className = 'questionDiv';
         questionDiv.id = 'questionDiv' + question.correct;
         //styling
-        questionDiv.style.height = '500px';
+        questionDiv.style.height = '100vh';
         questionDiv.style.backgroundImage = "url('" + question.bgImage + "')";
         questionDiv.style.backgroundSize = '100%';
         questionDiv.style.backgroundPosition = 'center';
-        //questionDiv.style.filter =  'brightness(50%)';
+        // questionDiv.style.filter =  'brightness(40%)';
         questionDiv.style.display = 'flex';
         questionDiv.style.flexDirection = 'column';
         questionDiv.style.justifyContent = 'center';
@@ -110,6 +110,14 @@ export default function buildQuiz(questions){
                     resultQuestion.style.cssText = "font-family: 'Roboto', sans-serif; background-color: white; padding: 10px";
                     let optionDiv = document.getElementById('optionDiv' + option);
                     optionDiv.style.color = "green";
+                    console.log(quizDiv2);
+                    
+                    // ------
+                    quizDiv2.style.filter =  'brightness(100%)';
+                    // quizDiv2.style.backgroundColor = "green !important";
+                    // event.stopPropagation();
+
+
                     // testing
                     // let optionDiv = document.parentElement(document.getElementById(option));
                     // console.log(optionDiv);
