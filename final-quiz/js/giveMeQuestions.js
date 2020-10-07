@@ -11,7 +11,8 @@ export default function buildQuiz(questions){
         //styling
         questionDiv.style.height = '100vh';
         questionDiv.style.backgroundImage = "url('" + question.bgImage + "')";
-        questionDiv.style.backgroundSize = '100%';
+        questionDiv.style.backgroundRepeat = "no-repeat";
+        questionDiv.style.backgroundSize = 'cover';
         questionDiv.style.backgroundPosition = 'center';
         // questionDiv.style.filter =  'brightness(40%)';
         questionDiv.style.display = 'flex';
@@ -19,8 +20,8 @@ export default function buildQuiz(questions){
         questionDiv.style.justifyContent = 'center';
         questionDiv.style.alignItems = 'center';
         questionDiv.style.justifyContent = 'space-between';
-        questionDiv.style.padding = '20px';
-        questionDiv.style.border = '30px';
+        questionDiv.style.padding = '200px';
+        questionDiv.style.border = '100px';
     
         const qstnTitle = document.createElement('h2');
         qstnTitle.textContent = question.qstn;
@@ -39,6 +40,7 @@ export default function buildQuiz(questions){
         
         
         const submitDiv = document.createElement('div');
+        submitDiv.addEventListener('click', respondClick, {once : true})
         submitDiv.className = 'submitDiv';
         submitDiv.textContent = 'Submit';
         submitDiv.style.cssText = 'border-setyle: thin; background-color:  grey';
@@ -128,6 +130,7 @@ export default function buildQuiz(questions){
     ////////    ADDING AN EVENT LISTENER
     ///////////////////////////////////////////////////////////////////////////////
     btnsubmit.addEventListener('click', respondClick);
+    
 
     var questionArray = questions;
 
