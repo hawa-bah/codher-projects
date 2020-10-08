@@ -21,5 +21,21 @@ export const questions = [
         bgImage: 'images/Ankara.jpg',
         country: 'Turkey'
 
+    },
+    {
+        qstn: ' What is the capital of Senegal ?',
+        options: ['Dakar', 'Banjul', 'Abuja', 'antananarivo'],
+        correct: 'Dakar',
+        bgImage: 'images/Senegal.jpg',
+        country: 'Senegal'
+
+    },
+    {
+        qstn: ' What is the capital of Ghana ?',
+        options: ['Luanda', 'Accra', 'Yaounde', 'Poto-Novo'],
+        correct: 'Accra',
+        bgImage: 'images/Ghana.jpg',
+        country: 'Ghana'
+
     }
 ]

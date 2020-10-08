@@ -1,4 +1,11 @@
 /*This is the style of the quizz*/
+/* *{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    max-width: 100%;
+} */
 html,body {
     background-color: black;
     margin: 0px;
@@ -12,9 +19,12 @@ h2 {
 .questionDiv{
     /* filter:  brightness(40%); */
     background-image: brightness(40%);
-    backdrop-filter: blur(50px);
-    backdrop-filter: grayscale(0.5) opacity(0.8);
+    min-height: 100%;
+    /* backdrop-filter: blur(50px);
+    backdrop-filter: grayscale(0.5) opacity(0.8); */
 }
+
+
 
 .submitNextDiv{
     display: flex;

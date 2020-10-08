@@ -9,8 +9,8 @@ export default function buildQuiz(questions){
         questionDiv.className = 'questionDiv';
         questionDiv.id = 'questionDiv' + question.correct;
         //styling
-        questionDiv.style.minHeight = '530px';
-        questionDiv.style.minWidth = '100%';
+        // questionDiv.style.minHeight = '530px';
+        // questionDiv.style.minWidth = '100%';
         questionDiv.style.top = '0';
         questionDiv.style.bottom = '0';
         questionDiv.style.right = '0';
@@ -47,7 +47,7 @@ export default function buildQuiz(questions){
         
         
         const submitDiv = document.createElement('div');
-        submitDiv.addEventListener('click', respondClick2, {once : true})
+        submitDiv.addEventListener('click', respondClick2)
         submitDiv.className = 'submitDiv';
         submitDiv.textContent = 'Submit';
         submitDiv.style.cssText = 'border-setyle: thin; background-color:  grey';
