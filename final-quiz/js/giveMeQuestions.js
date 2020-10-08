@@ -86,12 +86,6 @@ export default function buildQuiz(questions){
             })
         }
 
-
-
-
-
-
-
         const nextDiv = document.createElement('div');
         nextDiv.className = 'nextDiv';
         nextDiv.id = 'nextDiv';
@@ -130,9 +124,7 @@ export default function buildQuiz(questions){
              grid-gap: 5px; color: white; font-family: 'Anton', sans-serif; \
              padding: 30px; justify-content: center; \
              " ;
-            //end new
-            // optionsForm.appendChild(inputForm);
-            // optionsForm.appendChild(inputLabel);
+
         });
 
         submitNextDiv.appendChild(submitDiv);
@@ -150,19 +142,17 @@ export default function buildQuiz(questions){
             next = $(this).parent().parent().next();
             $('html,body').animate({scrollTop: next.offset().top});  
         })
-
-        $(".start").click(function() {
-            // $('#quizDiv').scrollIntoView();
-            var elmnt = document.getElementsByClassName("questionDiv");
-            elmnt.scrollIntoView();
-            // var next;
-            // next = $(this).parent().parent().parent().nextAll();
-            // $('html,body').animate({scrollTop: next.offset().top});  
-        })
-
-
-
     });
+
+    $("#start").click(function() {
+        var elmnt = document.getElementById("quizDiv");
+        console.log(elmnt);
+        console.log('hi');
+        elmnt.scrollIntoView();
+        
+    })
+
+
 
     btnsubmit.addEventListener('click', respondClick);
     
