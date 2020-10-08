@@ -1,7 +1,9 @@
 /*This is the style of the quizz*/
-body {
-    background-color: #ffbd69;
+html,body {
+    background-color: black;
     margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 h2 {
     position: center;
@@ -10,7 +12,10 @@ h2 {
 .questionDiv{
     /* filter:  brightness(40%); */
     background-image: brightness(40%);
+    backdrop-filter: blur(50px);
+    backdrop-filter: grayscale(0.5) opacity(0.8);
 }
+
 .submitNextDiv{
     display: flex;
     justify-content: space-around;
@@ -45,8 +50,9 @@ h2 {
 
 
 .home-container{
-    max-height: 800px;
-    height: 600px;
+    height: 100%;
+    width: 100%;
+    padding-bottom: 0px;
     background-color: black;
 }
 .home-container{

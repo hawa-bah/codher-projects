@@ -9,8 +9,15 @@ export default function buildQuiz(questions){
         questionDiv.className = 'questionDiv';
         questionDiv.id = 'questionDiv' + question.correct;
         //styling
-        questionDiv.style.height = '100vh';
-        questionDiv.style.backgroundImage = "url('" + question.bgImage + "')";
+        questionDiv.style.minHeight = '530px';
+        questionDiv.style.minWidth = '100%';
+        questionDiv.style.top = '0';
+        questionDiv.style.bottom = '0';
+        questionDiv.style.right = '0';
+        questionDiv.style.bottom = '0';
+        // questionDiv.style.overflow = 'hidden';
+        questionDiv.style.backgroundImage = "linear-gradient(black, black), " + "url('" + question.bgImage + "')";
+        questionDiv.style.backgroundBlendMode = 'saturation';
         questionDiv.style.backgroundRepeat = "no-repeat";
         questionDiv.style.backgroundSize = 'cover';
         questionDiv.style.backgroundPosition = 'center';
@@ -20,8 +27,8 @@ export default function buildQuiz(questions){
         questionDiv.style.justifyContent = 'center';
         questionDiv.style.alignItems = 'center';
         questionDiv.style.justifyContent = 'space-between';
-        questionDiv.style.padding = '200px';
-        questionDiv.style.border = '100px';
+        questionDiv.style.padding = '20px';
+        questionDiv.style.border = '0px';
     
         const qstnTitle = document.createElement('h2');
         qstnTitle.textContent = question.qstn;
@@ -40,17 +47,56 @@ export default function buildQuiz(questions){
         
         
         const submitDiv = document.createElement('div');
-        submitDiv.addEventListener('click', respondClick, {once : true})
+        submitDiv.addEventListener('click', respondClick2, {once : true})
         submitDiv.className = 'submitDiv';
         submitDiv.textContent = 'Submit';
         submitDiv.style.cssText = 'border-setyle: thin; background-color:  grey';
         
+        function respondClick2(){
+            question.options.map((option) => {
+                if(document.getElementById(option).checked && (option == question. correct)) {
+                    
+                    const feedback = document.createElement('p');
+                    feedback.textContent = 'You are right! ' + option + ' is the capital of ' + question.country;
+                    feedback.style.cssText = "font-family: 'Roboto', sans-serif; background-color: white; padding: 10px";
+
+                    questionDiv.appendChild(feedback);
+
+                    let optionDiv = document.getElementById('optionDiv' + option);
+                    optionDiv.style.color = 'green';
+
+                    questionDiv.style.backgroundImage = " " + "url('" + question.bgImage + "')";
+                    questionDiv.style.backgroundBlendMode = 'none';
+                }
+
+                if(document.getElementById(option).checked && (option !== question. correct)) {
+                    
+                    const feedback = document.createElement('p');
+                    feedback.textContent = 'Try again! ' + option + ' is not the correct answer...';
+                    feedback.style.cssText = "font-family: 'Roboto', sans-serif; background-color: white; padding: 10px";
+                    questionDiv.appendChild(feedback);
+
+                    let optionDiv = document.getElementById('optionDiv' + option);
+                    optionDiv.style.color = 'red';
+                    optionsForm.style.backgroundColor = 'red';
+
+                    questionDiv.style.backgroundImage = "linear-gradient(black, red), " + "url('" + question.bgImage + "')";
+                    questionDiv.style.backgroundBlendMode = 'multiply';
+                }
+            })
+        }
+
+
+
+
+
+
+
         const nextDiv = document.createElement('div');
         nextDiv.className = 'nextDiv';
         nextDiv.id = 'nextDiv';
         nextDiv.textContent = 'Next';
         nextDiv.style.cssText = 'border-setyle: thin; background-color: black';
-        // ----------------------------------------
         
         question.options.map((option) =>{
             
@@ -72,7 +118,7 @@ export default function buildQuiz(questions){
             optionDiv.appendChild(inputLabel);
 
             optionDiv.style.backgroundColor= 'rgba(0, 0, 0, 0.5)'; 
-            optionDiv.style.width = '200px';
+            optionDiv.style.minWidth = '150px';
             //optionDiv.style.height = '50px';
             optionDiv.style.padding = '20px';
             // background-color: rgba(0, 0, 0, 0.5)
@@ -82,53 +128,42 @@ export default function buildQuiz(questions){
             optionsForm.style.cssText = " width: 50%; display: grid; \
              grid-template-columns: 1fr 1fr; grid-template-rows: auto; \
              grid-gap: 5px; color: white; font-family: 'Anton', sans-serif; \
-             padding-bottom: 30px; \
+             padding: 30px; justify-content: center; \
              " ;
             //end new
             // optionsForm.appendChild(inputForm);
             // optionsForm.appendChild(inputLabel);
         });
 
-        // ------------------------------------TODAY
         submitNextDiv.appendChild(submitDiv);
         submitNextDiv.appendChild(nextDiv);
-        // ------------------------------------------
 
         questionDiv.appendChild(qstnTitle);
         questionDiv.appendChild(optionsForm);
 
-        // --------------------------TODAY
         questionDiv.appendChild(submitNextDiv);
-        // ---------------------------------
         
         quizDiv.appendChild(questionDiv);
-
-        // ------------------------------------TODAY
-        // submitNextDiv.addEventListener('click', goToNextQuestion());
-
-        // function goToNextQuestion(){
-        //     let el =  $(this).parent().parent().next();
-        //     // let el =  $(this).parent().parent().nextSibling();
-        //     $('html,body').scrollTop(el); 
-        //     // el.scrollIntoView();
-        //     console.log(el);
-        // }
 
         $(".nextDiv").click(function() {
             var next;
             next = $(this).parent().parent().next();
-            // $('html,body').scrollTop(next.offset().top); 
             $('html,body').animate({scrollTop: next.offset().top});  
         })
-        // -------------------------------------
+
+        $(".start").click(function() {
+            // $('#quizDiv').scrollIntoView();
+            var elmnt = document.getElementsByClassName("questionDiv");
+            elmnt.scrollIntoView();
+            // var next;
+            // next = $(this).parent().parent().parent().nextAll();
+            // $('html,body').animate({scrollTop: next.offset().top});  
+        })
 
 
 
     });
 
-    //////////////////////////////////////////////////////////////////////////////////
-    ////////    ADDING AN EVENT LISTENER
-    ///////////////////////////////////////////////////////////////////////////////
     btnsubmit.addEventListener('click', respondClick);
     
 
@@ -165,7 +200,7 @@ export default function buildQuiz(questions){
                     console.log(quizDiv2);
                     
                     // ------
-                    quizDiv2.style.filter =  'brightness(100%)';
+                    // quizDiv2.style.filter =  'brightness(100%)';
                     // quizDiv2.style.backgroundColor = "green !important";
                     // event.stopPropagation();
 
@@ -175,11 +210,7 @@ export default function buildQuiz(questions){
                     // console.log(optionDiv);
                 }
 
-                // testing (this works) 
-                // if (document.getElementById(option).checked){
-                //         console.log('testing correct');
-                //     };
-                // }
+                
 
                 if (document.getElementById(option).checked && option != question.correct) {
                     console.log('testing incorrect');
