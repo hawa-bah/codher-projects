@@ -2,45 +2,30 @@
 export default function buildQuiz(questions){
     const quizDiv = document.getElementById('quizDiv');
     const btnsubmit = document.getElementById('btnsubmit');
-    const resultsDiv = document.getElementById('resultsDiv');
 
     questions.map((question) => {
         const questionDiv = document.createElement('div');
         questionDiv.className = 'questionDiv';
         questionDiv.id = 'questionDiv' + question.correct;
         //styling
-        // questionDiv.style.minHeight = '530px';
-        // questionDiv.style.minWidth = '100%';
-        questionDiv.style.top = '0';
-        questionDiv.style.bottom = '0';
-        questionDiv.style.right = '0';
-        questionDiv.style.bottom = '0';
-        // questionDiv.style.overflow = 'hidden';
+        questionDiv.style.minWidth = '100%';
+        questionDiv.style.cssText = " padding: 30px; display: flex; flex-direction: column; justify-content: center; align-items: center; border: 0px";
+        questionDiv.style.overflow = 'hidden';
         questionDiv.style.backgroundImage = "linear-gradient(black, black), " + "url('" + question.bgImage + "')";
         questionDiv.style.backgroundBlendMode = 'saturation';
         questionDiv.style.backgroundRepeat = "no-repeat";
         questionDiv.style.backgroundSize = 'cover';
         questionDiv.style.backgroundPosition = 'center';
-        // questionDiv.style.filter =  'brightness(40%)';
-        questionDiv.style.display = 'flex';
-        questionDiv.style.flexDirection = 'column';
-        questionDiv.style.justifyContent = 'center';
-        questionDiv.style.alignItems = 'center';
-        questionDiv.style.justifyContent = 'space-between';
-        questionDiv.style.padding = '20px';
-        questionDiv.style.border = '0px';
-    
+
         const qstnTitle = document.createElement('h2');
         qstnTitle.textContent = question.qstn;
         qstnTitle.className = 'qstn';
-        qstnTitle.style.fontFamily = "'Pacifico', cursive";
-        qstnTitle.style.color = 'white';
-        qstnTitle.style.fontSize = '50px';
-        qstnTitle.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-
+        qstnTitle.style.cssText = " font-family: 'Pacifico', cursive; \
+        color: white;  background-color: rgba(0, 0, 0, 0.5) "
+        
         const optionsForm = document.createElement('form');
+        optionsForm.className = 'optionsForm';
 
-        // -----------------------------------------TODAY
         const submitNextDiv = document.createElement('div');
         submitNextDiv.className = 'submitNextDiv';
         submitNextDiv.style.cssText = 'border-color: green; border-style: thin; background-color: white';
@@ -59,12 +44,10 @@ export default function buildQuiz(questions){
                     const feedback = document.createElement('p');
                     feedback.textContent = 'You are right! ' + option + ' is the capital of ' + question.country;
                     feedback.style.cssText = "font-family: 'Roboto', sans-serif; background-color: white; padding: 10px";
-
                     questionDiv.appendChild(feedback);
 
                     let optionDiv = document.getElementById('optionDiv' + option);
                     optionDiv.style.color = 'green';
-
                     questionDiv.style.backgroundImage = " " + "url('" + question.bgImage + "')";
                     questionDiv.style.backgroundBlendMode = 'none';
                 }
@@ -100,7 +83,6 @@ export default function buildQuiz(questions){
             const inputForm = document.createElement('input');
             inputForm.type = 'radio';
             inputForm.name = question.correct;
-            //inputForm.value = option;
             inputForm.id = option;
             
             const inputLabel = document.createElement('label');
@@ -112,18 +94,14 @@ export default function buildQuiz(questions){
             optionDiv.appendChild(inputLabel);
 
             optionDiv.style.backgroundColor= 'rgba(0, 0, 0, 0.5)'; 
-            optionDiv.style.minWidth = '150px';
-            //optionDiv.style.height = '50px';
-            optionDiv.style.padding = '20px';
-            // background-color: rgba(0, 0, 0, 0.5)
+            optionDiv.style.padding = '10px';
 
-            optionsForm.appendChild(optionDiv);
-
-            optionsForm.style.cssText = " width: 50%; display: grid; \
-             grid-template-columns: 1fr 1fr; grid-template-rows: auto; \
-             grid-gap: 5px; color: white; font-family: 'Anton', sans-serif; \
-             padding: 30px; justify-content: center; \
-             " ;
+            optionsForm.appendChild(optionDiv);        
+         
+            optionsForm.style.cssText = "  display: grid;  \
+            grid-template-columns: repeat(auto-fit, 186px);  \
+            grid-gap: 5px; color: white; font-family: 'Anton', sans-serif; \
+            justify-content: center; margin: 20px; padding: 5px " ;
 
         });
 
@@ -174,12 +152,9 @@ export default function buildQuiz(questions){
             const resultQuestion = document.createElement('p');            
 
             question.options.map((option) =>{
-
-                ///testing
-                //console.log (document.getElementById(option).checked, option, question.correct);
                 
                 if (document.getElementById(option).checked && (option == question.correct)) {
-                    console.log('testing correct');
+                    // console.log('testing correct');
                     countCorrect = countCorrect + 1;
                     console.log('You have' + countCorrect + 'answers correct');
 
@@ -188,26 +163,12 @@ export default function buildQuiz(questions){
                     let optionDiv = document.getElementById('optionDiv' + option);
                     optionDiv.style.color = "green";
                     console.log(quizDiv2);
-                    
-                    // ------
-                    // quizDiv2.style.filter =  'brightness(100%)';
-                    // quizDiv2.style.backgroundColor = "green !important";
-                    // event.stopPropagation();
-
-
-                    // testing
-                    // let optionDiv = document.parentElement(document.getElementById(option));
-                    // console.log(optionDiv);
                 }
-
-                
-
+              
                 if (document.getElementById(option).checked && option != question.correct) {
-                    console.log('testing incorrect');
-                    
+                    // console.log('testing incorrect');
                     resultQuestion.textContent = 'Try again! ' + option + ' is not the correct answer...';
                     resultQuestion.style.cssText = " font-family: 'Roboto', sans-serif; background-color: white; padding: 10px";
-
                     let optionDiv = document.getElementById('optionDiv' + option);
                     optionDiv.style.color = 'red';
                 }     

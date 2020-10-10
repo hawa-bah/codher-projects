@@ -14,14 +14,20 @@ html,body {
 }
 h2 {
     position: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 50px;
+    /* max-width: 100%; */
 }
 /* ----- added today  */
 .questionDiv{
     /* filter:  brightness(40%); */
     background-image: brightness(40%);
-    min-height: 100%;
+    /* min-height: 500px; */
+    /* min-height: 100%; */
     /* backdrop-filter: blur(50px);
     backdrop-filter: grayscale(0.5) opacity(0.8); */
+    
 }
 
 
@@ -49,21 +55,11 @@ h2 {
     flex-wrap: wrap;
     border-color: black;
 }
-
-
-/* #quizDivOption{
-    background-color: white;
-    height: 20px;
-} */
-
-
-
-
 .home-container{
-    height: 100%;
-    width: 100%;
-    padding-bottom: 0px;
+    min-height: 100%;
+    max-width: 100%;
     background-color: black;
+    padding: 30px;
 }
 .home-container{
     display:flex;
@@ -71,8 +67,6 @@ h2 {
     align-items: center;
     /* text-align: center; */
     justify-content: center;
-
-
 }
 .home-container h1{
     font-family: 'Bangers', cursive;
@@ -116,3 +110,17 @@ a:link{
     padding: 20px;
 
 }
+.optionsForm{
+    max-width: 400px;
+}
+@media screen and (max-width: 480px) {
+    h2{
+        font-size: 25px;
+    }
+    .home-container h1{
+        font-size: 50px;
+    }
+    .optionsForm{
+        max-width: 200px;
+    }
+  }
